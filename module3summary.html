@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    </head>
+    
+
+    <p>
+        In this module, we explored the role of hardware in achieving isolation and memory protection for the trusted computing base. We started by understanding the process of address translation from logical to physical addresses, which allows programs to work with logical addresses without being concerned about the underlying physical memory. Memory protection mechanisms, including protection level bits and page protection levels, were discussed to ensure the separation of operating system code and user code. Privileged instructions and different execution modes of the processor were introduced as crucial components of isolation. However, it was emphasized that trust in hardware is essential, as vulnerabilities in hardware and firmware can undermine the effectiveness of memory protection. The module concluded by highlighting the Intel developers' documentation as a recommended resource for further reading. In the next module, we will explore the concept of complete mediation and delve into virtualization.
+    </p>
+
+    <p>
+        In this module, we talked about how hardware helps protect the important parts of a computer system from unauthorized access. We started by understanding how the computer translates the logical addresses that programs use into physical addresses that correspond to the actual memory locations. This translation process allows programs to work with a virtual address space without worrying about the physical memory details.
+
+We also discussed memory protection, which is a way to separate the operating system from user programs. This separation ensures that user programs cannot access or modify the sensitive parts of the system, such as the operating system code or data, directly. Memory protection relies on a combination of protection level bits and page protection levels, which control the access rights to different parts of memory.
+
+We learned that there are certain instructions that only the trusted parts of the system, like the operating system, can use. These instructions are called privileged instructions, and they help enforce the separation between trusted and untrusted code. By executing in different modes, the processor can differentiate between when it's running the operating system code and when it's running user code.
+
+However, it's important to remember that hardware vulnerabilities can exist, which may undermine the effectiveness of memory protection. These vulnerabilities can be found in the hardware or firmware of the system, and they can be exploited by attackers. So, while hardware plays a crucial role in providing security, we need to be aware of potential vulnerabilities and keep our systems up to date with security patches.
+
+In the next module, we will explore another important concept called complete mediation, and we'll discuss how virtualization can help achieve it.
+    </p>
+<body>
+    
+</body>
+</html>

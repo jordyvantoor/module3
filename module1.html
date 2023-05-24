@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+</head>
+<body>
+    <p>
+        Welcome to CS 6238, Secure Computer Systems! The instructor, Mustaque Ahamad, is excited to have you in the course for the next 15 weeks. He introduces himself as a Professor of Computer Science at Georgia Tech with extensive experience in teaching and research. He has a background in systems and shifted to cybersecurity when the Georgia Tech Information Security Center was launched in 1998. He has worked with graduate students and co-founded successful cybersecurity companies like Pindrop Security and Fortscope.
+
+Mustaque Ahamad played a key role in developing the curriculum for the master's degree in cybersecurity at Georgia Tech. He has been teaching the course, Secure Computer Systems, since its inception, adapting the topics to keep up with technological advancements and evolving cyber threats. The course covers foundational material to understand the construction and evaluation of secure systems.
+
+The instructor will be assisted by a team of teaching assistants (TAs), who are graduate students that have excelled in the course previously. The TAs will handle programming projects, grading, and responding to inquiries through Piazza, an online platform. Virtual office hours will be held by the TAs to provide additional support. Mustaque Ahamad assures students that he will address any concerns regarding the TAs' performance.
+
+In the next lesson, the course will cover the recommended background, assessment criteria, and preparations needed to succeed in the class.
+    </p>
+
+    <p>
+        In this lesson, the instructor discusses the necessary background for the course and explains the assessment methods and expectations for students. The course is called "Secure Computer Systems" and focuses on securing the platform from hardware to the operating system level. The instructor assumes that students have a background in undergraduate courses such as operating systems and computer architecture, covering topics like memory management, CPU scheduling, and concurrency. Strong programming skills and familiarity with systems programming are also expected.
+
+The assessment includes weekly quizzes that test understanding of the material covered in class and the assigned research papers. Programming projects are assigned throughout the semester to provide hands-on experience with implementing security mechanisms. There will be a midterm and a final exam, with the midterm covering the topics discussed up to that point. The final exam is not cumulative. The assessment consists of 50% programming projects and quizzes and 50% exams.
+
+The instructor emphasizes the importance of active participation and engagement in the course, encouraging students to participate in online discussions using the Piazza platform. The expectation is that students work continuously on reading the assigned papers and completing the projects. The instructor recommends dedicating around ten hours per week to the course.
+
+The instructor also mentions the Georgia Tech Honor Code and reminds students to submit their own work, citing sources appropriately. Collaboration and discussion with classmates are encouraged, but submitting the same code as others is not allowed. The lesson concludes with information about the administration of quizzes and exams and a reminder of the instructor's availability for questions and concerns.
+    </p>
+
+    <p>
+        The course titled "Secure Computer Systems" focuses on the importance of security in computer systems. It begins by revisiting the security mindset, which acknowledges the presence of threats and the exploitation of vulnerabilities by threat actors. The threats can range from cybercriminals to nation-states, each with different resources and motivations. The threat landscape is complex, involving individuals who specialize in discovering vulnerabilities, exploiting them, and participating in an underground economy for selling compromised resources and data.
+
+The course emphasizes the need for context in security, particularly in relation to computer systems. It specifically focuses on the hardware and operating system, which serve as the platform for executing applications and services. Operating systems are complex due to their size, functionality, concurrency, and resource management. The greater the complexity of a system, the higher the likelihood of design and implementation vulnerabilities.
+
+Operating systems attract attackers because compromising them grants significant access and control. By compromising an operating system, attackers essentially gain "the keys to the kingdom" and can access all sensitive information on the machine. This includes the ability to manipulate confidentiality, integrity, and availability of data. Successful attacks on operating systems are highly attractive to attackers because they provide broad access, eliminating the need to target specific users.
+
+In summary, the course acknowledges the presence of threats and vulnerabilities in computer systems, particularly operating systems. It explores the complexity of operating systems, the motivations of threat actors, and the significant impact of compromising an operating system. The next lesson will delve deeper into why operating systems are attractive targets for attackers.
+    </p>
+
+    <p>
+        In the previous lesson, it was highlighted that an operating system is highly attractive to attackers because compromising it grants access to all the data and resources on the machine. To understand why this is the case, it is essential to comprehend the role of an operating system.
+
+The primary purpose of an operating system is to simplify the building, deployment, and utilization of applications, as well as the sharing of resources within a computer system. It achieves this by efficiently managing the physical resources of the machine and creating virtual resources that are easier to work with. These virtual resources serve the same functions as their physical counterparts but are implemented using the underlying physical resources.
+
+By giving the operating system access to all the physical resources, it can effectively manage and utilize them to provide virtual resources to users. This delegation of physical resource management to the operating system enables ease of use and resource sharing. For instance, memory is abstracted as an address space for processes, allowing programs to execute regardless of the physical memory capacity. Similarly, files are virtual resources implemented by the operating system, utilizing disk storage.
+
+In the context of security, compromising an operating system provides access to sensitive data stored in memory or on disk. The operating system has access to all the blocks on the disk and the data contained within them. It also has access to memory where private or session keys may be stored. Therefore, gaining access to the operating system equates to gaining access to files, memory, and other crucial information.
+
+To summarize, an operating system is attractive to attackers because it controls and manages all the physical resources of a machine, providing access to virtual resources used by applications. Compromising an operating system grants broad access to data and resources, making it a prime target for attackers.
+    </p>
+
+    <p>
+        In the previous lesson, we discussed the critical role of an operating system as a Trusted Computing Base (TCB) in protecting physical and virtual resources. The TCB is the foundation on which applications and services run, and it is trusted with access to all physical resources. We introduced the concept of a reference monitor, which is responsible for monitoring requests to protected resources. The operating system acts as the reference monitor by mediating all requests and ensuring that untrusted applications cannot bypass it to access physical resources directly.
+
+To meet the requirements of a TCB, it must be tamper-proof, meaning untrusted code cannot modify it. The TCB should enforce complete mediation, ensuring that all access to protected resources goes through the operating system. Additionally, the TCB must be correct, free from vulnerabilities that could be exploited. These requirements ensure the integrity and security of the system.
+
+We depicted the trusted hardware as the foundation of the system, followed by the TCB (typically the operating system), and untrusted applications. The red line represents the controlled interface between the applications and the TCB, eliminating the need to trust the applications themselves.
+
+The trusted computing base acts as a reference monitor by making decisions on granting or denying requests for protected resources. It addresses the authentication problem by identifying the source of the request and the authorization problem by determining if the requester is allowed access to the resource. The gold standard of security includes authentication, authorization, and audit, forming the foundation of secure systems.
+
+In the next lesson, we will further explore the importance of the operating system as a trusted computing base and delve into the concept of trust in the TCB.
+    </p>
+
+    <p>
+        In this lesson, the importance of securing the operating system is revisited from a different perspective. It is emphasized that if the operating system is compromised, an attacker gains access to all the resources and there is no security or protection for any user, service, file, or part of memory on the system.
+
+Several examples are provided to highlight the severity of operating system vulnerabilities. If an attacker compromises the operating system, they can impersonate users, manipulate user IDs associated with processes, and bypass authentication. They can also manipulate access control mechanisms, leading to data destruction or exfiltration. Furthermore, security tools deployed to detect unauthorized access can be rendered ineffective if the operating system is compromised. Malicious services can be launched, such as spam bots, further compromising the system's security.
+
+The lesson encourages students to think about different attack scenarios and consider whether compromising the operating system would lead to success in those attacks. It is emphasized that securing the operating system is crucial for building a secure computer system.
+
+The next lesson will delve into the concept of trust in the trusted computing base and discuss how to ensure that the operating system fulfills its role as a trusted component, specifically as a reference monitor.
+    </p>
+
+    <p>
+        The concept of the trusted computing base (TCB) refers to the components of a computer system that are essential for enforcing security policies and maintaining the system's integrity. The TCB typically includes the operating system, hardware, and any other software or components that are critical for security.
+
+To be able to trust the TCB, several factors need to be considered:
+
+1. Completeness: The TCB should provide complete mediation, which means that it should control and validate every access to resources and ensure that no unauthorized actions can occur.
+
+2. Tamper-proof: The TCB should be resistant to tampering or unauthorized modifications. It should be designed and implemented in a way that prevents malicious actors from altering its functionality or introducing vulnerabilities.
+
+3. Correctness: The TCB should accurately enforce security policies and perform its intended functions without errors or vulnerabilities. This requires thorough testing, verification, and validation processes to ensure the correctness of the TCB components.
+
+To assess the trustworthiness of the TCB, various approaches can be taken:
+
+1. Formal verification: The TCB can be formally verified, which involves using mathematical methods and proofs to demonstrate that the system adheres to its specifications and security requirements. Formal verification provides strong guarantees about the correctness of the TCB.
+
+2. Testing and auditing: The TCB should undergo rigorous testing and auditing processes to identify and address any vulnerabilities or weaknesses. This includes conducting penetration testing, code reviews, and security assessments to assess the TCB's resilience against attacks.
+
+3. Documentation and transparency: The TCB should have clear and comprehensive documentation that outlines its design, implementation, and security features. Transparency allows independent experts to review and analyze the TCB, increasing the likelihood of identifying any potential issues.
+
+4. Trust in the people and processes: Trust in the TCB also relies on the individuals and organizations responsible for its development, maintenance, and operation. This includes trusting the developers, system administrators, and the overall development and supply chain processes. The reputation, expertise, and track record of these individuals and organizations play a significant role in establishing trust.
+
+It is important to note that achieving absolute trust or perfection is challenging and often not possible. Trustworthiness is a measure of how well the TCB meets the required security criteria and how much confidence can be placed in its ability to perform its functions correctly and securely.
+
+The paper "Reflections on Trusting Trust" by Ken Thompson raises important questions about trust in software systems, specifically focusing on the compiler, which is a crucial component of the TCB. The paper demonstrates how a malicious modification to the compiler's source code can result in a persistent Trojan being inserted into the compiled software, even if the source code appears trustworthy. This highlights the need to trust not only the visible components but also the people, tools, and processes involved in developing and maintaining the TCB.
+
+Overall, trust in the TCB is built through a combination of factors, including the TCB's completeness, tamper-proof design, correctness, formal verification, testing, auditing, transparency, and trust in the people and processes behind it. It requires a thorough understanding of the system's components, their interactions, and the security measures in place to make an informed judgment about the trustworthiness of the TCB.
+    </p>
+
+    <p>
+        The Orange Book, also known as "Trusted Computer System Evaluation Criteria" (TCSEC), was a document that outlined the evaluation criteria for trusted computing systems. It was primarily developed by the Department of Defense (DoD) in the 1980s. The purpose of the Orange Book was to provide guidelines for assessing the level of trust that could be placed in computer systems, particularly in sensitive environments like the DoD and intelligence agencies.
+
+The Orange Book introduced a framework that consisted of divisions and classes to categorize the level of trustworthiness of a system. Let's go through the divisions and classes:
+
+1. Division D: This division represents the lowest level of trust. Systems in this division do not isolate the Trusted Computing Base (TCB) from untrusted software. Lack of isolation makes the system vulnerable to tampering, and thus, it cannot be trusted.
+
+2. Division C: Systems in this division provide isolation, authenticate users, and enforce access control. Class C1 represents discretionary access control, where resource owners have discretion over sharing. Class C2 adds accountability by requiring audit logs to track system activities. Moving from Division D to Division C indicates an increase in trustworthiness.
+
+3. Division B: This division focuses on the functionality and correctness of the system. It addresses questions like support for mandatory access control, handling covert channels, system structuring, and separation of security code from non-security code. Class B1 emphasizes system correctness, penetration testing, and well-defined TCB. Class B2 focuses on modularity, layering, and a security model. Division B represents higher levels of assurance than Division C.
+
+4. Division A: This division aims for the highest level of trust. Class A1 requires a verified design, where the design is proven to meet its specifications. Class A2 goes a step further by requiring formal verification of the implementation. Division A represents the most trusted systems.
+
+The questions asked during the evaluation process determine the division and class in which a system falls. Higher divisions and classes indicate higher levels of trustworthiness.
+
+Although the Orange Book provided a comprehensive evaluation framework, it didn't have the desired impact in the commercial world. The focus on high levels of assurance and verification made the systems more costly to develop and limited their scalability. In subsequent years, international efforts such as the Common Criteria aimed to address these limitations and provide a common framework for evaluating the trustworthiness of computer systems.
+
+The discussion around the Orange Book highlights the challenge of assessing and determining the trustworthiness of systems. It's not a binary classification but rather a spectrum ranging from non-trusted to fully trusted. Different evaluation criteria and frameworks have been developed to address this challenge and provide a basis for assessing trust in computing systems.
+    </p>
+
+    <p>
+        Thank you for sharing this information about trust policy modules (TPMs) and their role in ensuring trust in computer systems. TPMs are indeed additional hardware components that can be integrated into computer systems to enhance their security. They are designed to store cryptographic keys, perform cryptographic operations, and provide secure measurements of software and firmware components.
+
+The concept of trust in the context of TPMs is centered around the idea of running software that is known and verified. The TPM can compute a digest or measurement of the operating system or code that is supposed to be loaded during system boot-up. By comparing this measurement with a stored value, the TPM can verify if the system is running the intended software.
+
+However, there are debates and concerns surrounding the idea of trust and TPMs. Some argue that this approach allows vendors to control and limit the software that can run on a system, potentially limiting user freedom and customization. This is particularly evident in the example of iOS jailbreaking, where individuals seek to bypass the restrictions imposed by Apple's operating system to run unauthorized software. In such cases, finding vulnerabilities or exploits that enable jailbreaking becomes valuable, and companies like Zerodium offer substantial rewards for discovering such exploits.
+
+While TPMs can provide a level of assurance and control over the software running on a system, the notion of trust can be subjective and contentious. The balance between security and user freedom is an ongoing discussion in the field of computer security.
+
+In the upcoming lessons of the course, you will delve deeper into TPMs, secure boot processes, and related topics. This will provide you with a more comprehensive understanding of how trust can be established and maintained in computer systems.
+        </p>
+
+        <p>
+            Thank you for providing an overview of the course roadmap. It seems like you have structured the course in a logical progression, building upon the concepts discussed in the earlier lessons. Here's a summary of the topics you'll be covering:
+
+1. Design Principles: You will explore the importance of defining and following design principles for secure systems.
+
+2. Hardware Mechanisms for Memory Protection: This module will focus on hardware-level mechanisms such as memory protection, privileged rings, privileged instructions, and virtualization, which help achieve isolation and tamper-proofing.
+
+3. Authentication: You will delve into authentication methods, implementation techniques, and evaluation criteria, considering factors like entropy.
+
+4. Access Control: This topic will be covered in two parts. First, discretionary access control will be introduced, including the abstraction of access control matrices and their implementation in operating systems. Then, mandatory access control models and the management of information flow will be discussed, with a specific focus on SELinux.
+
+5. Cold and Side Channels: You will explore the concept of cold and side channels, including a discussion on Spectre and Meltdown vulnerabilities found in Intel processors. Mitigation strategies for these vulnerabilities will also be explored.
+
+6. Distributed Systems and Network Security: As real-world systems are interconnected, you will revisit authentication, secure network communication, trust, access control, secure boot delegation, and end-to-end security in the context of distributed systems.
+
+7. Database Security: This final topic will cover the unique challenges and considerations in securing databases, including sensitive data storage, inference attacks, and privacy issues.
+
+Throughout the course, the focus will be on the functionality that needs to be implemented in a trusted computing base, with less emphasis on formal models and verification.
+
+Overall, the course appears to provide a comprehensive understanding of secure systems, covering various aspects such as design principles, hardware mechanisms, authentication, access control, network security, and database security.
+        </p>
+
+        <p>
+            Congratulations on completing Module 1! It seems like you have covered the fundamental concepts of the trusted computing base and its critical role in securing computer systems. The operating system serves as the trusted computing base, and its isolation from untrusted code and adherence to tamper-proofing and complete mediation are crucial requirements.
+
+You highlighted the complexity of building a trusted computing base and the importance of getting it right for a secure system. Trust not only comes from what the trusted computing base does but also from how well it performs its functions.
+
+For the next module, which focuses on design principles for secure systems, you have assigned some papers for reading. These include:
+
+1. "Reflections on Trusting Trust" by Ken Thompson: This paper discusses the challenges of trusting systems, even with access to source code, due to the need to trust the toolchain and the individuals involved.
+
+2. The background and summary of the TCSEC (Trusted Computer System Evaluation Criteria) or Orange Book: You recommended reading the sections that discuss the different divisions, classes, and reflections on the impact of the TCSEC.
+
+Please make sure to read these assigned papers as they will be important for the upcoming quiz. The quiz will test your understanding of the assigned readings. The next module will cover the design principles for secure systems.
+
+Good luck with your readings and see you in Module 2!
+        </p>
+
+        <p>
+        Here's a combined summary of Module 1 and the assignments:
+
+        Module 1 focused on the concept of the trusted computing base (TCB) and its significance in secure computer systems. The TCB, which is primarily represented by the operating system, plays a critical role in protecting system resources. It must meet essential requirements, including tamper-proofing and complete mediation, to ensure the system's security.
+        
+        The module emphasized that trust in the TCB comes from both its functionality and its ability to perform its tasks effectively. While building a trustworthy TCB is complex, its correctness is crucial for system security.
+        
+        To delve deeper into the topic, several papers have been assigned for reading. "Reflections on Trusting Trust" by Ken Thompson explores the challenges of trusting systems, considering the need to trust not only the source code but also the toolchain and the people involved.
+        
+        Additionally, it is recommended to read the background and summary of the TCSEC (Trusted Computer System Evaluation Criteria) or Orange Book. Pay particular attention to the sections discussing the different divisions, classes, and reflections on its impact.
+        
+        These assigned papers will be essential for the upcoming quiz, which will test your understanding of their content. Moving forward, Module 2 will cover the design principles for secure systems.
+        
+        Enjoy your readings, and I look forward to seeing you in Module 2!
+       
+
+        </p>
+
+        <p>
+            Of course! Let me explain the concepts covered in Module 1 in simpler language:
+
+            Module 1 focused on the idea of the trusted computing base (TCB), which is like the "security core" of a computer system. It's usually the operating system and it's responsible for keeping the system safe and protecting its important parts.
+            
+            The TCB has to meet certain requirements to be effective. One requirement is that it should be tamper-proof, meaning it should be difficult for attackers to mess with it. Another requirement is called complete mediation, which means that any request for system resources has to go through the TCB and be checked to make sure it's allowed.
+            
+            The module emphasized the importance of getting the TCB right because if it's compromised or not working properly, the whole system becomes vulnerable. The TCB has access to everything, so if an attacker can control it, they can control the whole system.
+            
+            Building a trustworthy TCB is not easy because it's a complex task. Trust in the TCB comes from both what it does and how well it does it. It needs to function correctly and reliably.
+            
+            To help understand these concepts better, some papers were assigned for reading. One of them, "Reflections on Trusting Trust," talks about the difficulties of trusting computer systems. It explains that even if we have the source code of a system, we still need to trust the tools used to build it and the people involved.
+            
+            Another assigned paper gives a summary of the TCSEC or Orange Book, which is a system for evaluating computer security. It's good to read the parts that explain the different levels and divisions of security and why they didn't have the impact they hoped for.
+            
+            These papers will be important for a quiz, so make sure to read them. In the next module, we'll be discussing the design principles for secure systems.
+            
+            I hope this explanation helps you understand the concepts better! Let me know if you have any further questions.
+        </p>
+</body>
+</html>
