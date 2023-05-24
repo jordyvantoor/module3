@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+</head>
+<body>
+    <p>
+        In module two, the focus is on design principles for building trustworthy and secure systems. The speaker emphasizes the importance of trust and discusses the need to follow these principles to gain trust in a system. Building complex systems that are trustworthy is challenging because vulnerabilities and errors need to be eliminated. Attackers only need to find one vulnerability, while the system builders must ensure there are none. Therefore, the systematic and methodical building of secure systems becomes crucial. Design principles serve as rules to guide the development process and help avoid actions that could negatively impact system security. The next lesson will delve into each of these design principles.
+    </p>
+
+    <p>
+        The speaker introduces the concept of real-world security as a context for understanding computer system security. They explain that valuable assets need protection and that threat actors, such as burglars or hackers, target these assets for their own gain. The speaker emphasizes the need to understand the motivation and capabilities of threat actors to inform defense strategies. They introduce the concept of the economics of security, where the cost of defense should be proportional to the value of the asset being protected and should make it unprofitable for attackers to compromise the system. The speaker presents a diagram illustrating the relationship between defender and attacker costs, asset values, and the level of security. They argue that there is an optimal level of security that balances the defender's cost and the attacker's effort. They discuss the concept of cyber risk and the need to allocate resources appropriately to reduce risk. The economics of security is presented as a design principle, stating that security costs should be commensurate with the threat level, asset value, and attacker capabilities. The next lesson will explore an example related to the cost of security for system users.
+    </p>
+
+    <p>
+        In the previous lesson, the speaker discussed the cost of security and now focuses on a specific aspect of that cost, which is its impact on people. Security measures can be restrictive and inconvenient, affecting usability and productivity. For example, complex password requirements and frequent password changes can be difficult for users to manage. The speaker mentions Microsoft's decision to no longer enforce password expiration due to the negative impact on security. Another example is the use of two-factor authentication, which requires users to have their device with them at all times. The speaker emphasizes that the cost of security extends beyond financial considerations and includes the burden it places on users.
+
+The speaker highlights the concept that a system's security is only as strong as its weakest link, which is often attributed to human vulnerabilities. Thus, the design principle of user acceptability becomes crucial. Imposing excessive demands or requirements on users can lead to circumvention and compromise the system's security. It is essential to make reasonable assumptions about what users can handle to avoid making them the weak link. The principle of user acceptability states that users must accept the requirements imposed by the system, recognizing the importance of their psychological acceptance. Neglecting this principle can result in users finding ways to bypass security measures, ultimately weakening the system's overall security.
+
+The speaker emphasizes the significance of this design principle, which has been recognized since the 1960s. However, it is acknowledged that not all systems have effectively followed this principle in their design. The next lesson will explore another design principle related to system complexity.
+    </p>
+
+    <p>
+
+        In this lesson, the speaker introduces the design principle of "economy of mechanisms," which focuses on the complexity of systems. The speaker presents a two-dimensional graph to illustrate the relationship between security assurance and features/functionality of a system. System A, which is high on the features/functionality axis, is complex and challenging to analyze, resulting in a larger attack surface and more vulnerabilities. On the other hand, System B, which is low on features/functionality, provides higher security assurance but sacrifices usability and functionality.
+
+The ideal approach is to strike a balance between security and complexity, represented by System C in the middle. System C aims to provide the necessary features and functionality at an acceptable level of assurance. The design principle derived from this is to keep systems as simple as possible by minimizing complexity and utilizing fewer and simpler mechanisms whenever feasible.
+
+The speaker mentions two related issues that fall under the economy of mechanism design principle. The first is open design, which involves making the system's design transparent and available for scrutiny, rather than relying on security through obscurity. While open design enhances security, it does not guarantee it, as demonstrated by vulnerabilities like Heartbleed in the OpenSSL code.
+
+The second issue discussed is the complexity of the trusted computing base, with a focus on operating systems. Operating systems such as Windows and Android consist of millions of lines of code, making them highly complex. To address this, the speaker suggests transitioning to a hypervisor as the trusted computing base, as hypervisors can be implemented with significantly fewer lines of code, reducing complexity.
+
+The lesson concludes with a mention of the next topic, which will cover privileges rather than system complexity.
+    </p>
+
+    <p>
+        In this lesson, the focus shifts from system and user design principles to privileges within a system. The speaker introduces two design principles related to privileges: the least privilege principle and the fail-safe default principle.
+
+The least privilege principle states that programs should only have access to the resources that are necessary for them to perform their intended tasks. By limiting privileges to what is essential, the potential damage in case of a security breach or error is minimized. Privilege escalation, which occurs when a program gains higher privileges than required, is highlighted as a concern that can lead to unauthorized access and malicious actions.
+
+The fail-safe default principle addresses the issue of undefined privileges. If access to a resource is not explicitly specified, the default action should be to deny access, prioritizing safety over potentially insecure access. This principle emphasizes the importance of maintaining secure defaults and avoiding granting access without explicit permission.
+
+Separation of privileges is mentioned as a related concept, suggesting the use of separate keys or fine-grained access control to differentiate access to different secure areas or resources. Fine-grained access control enables the granting of specific privileges to different processes or applications.
+
+The speaker also discusses the concept of fail-safe defaults in contrast to least privilege, highlighting the importance of denying access when it is not explicitly granted, even if it may be needed for a task.
+
+The lesson concludes by mentioning the next design principle, which will focus on diversity and defense in depth as strategies to address vulnerabilities within a system.
+
+In the next lesson, the speaker will delve into the concept of diversity and defense in depth as additional design principles for secure systems.
+    </p>
+
+    <p>
+        The defense in depth design principle emphasizes the use of multiple layers of defense to enhance the security of systems. This principle draws an analogy from physical security measures that employ multiple checkpoints and security perimeters. Just as no physical defense is perfect, no single security measure can guarantee complete protection in the digital realm. By implementing multiple layers of defense, the likelihood of an attacker successfully breaching all layers is reduced.
+
+In a diagram illustrating defense in depth, three layers of defense are shown. The first layer is penetrated by Attack 1, but it is thwarted by the subsequent layer. Similarly, Attack 2 manages to compromise the first two layers but is halted by the third layer. The idea is that by having diverse and independent defenses, the weaknesses or gaps in each layer are less likely to align, making it harder for an attacker to exploit them consistently.
+
+To illustrate this principle, a concrete example is provided using the scenario discussed in a previous module about a Trojan in a login program. Two independent compilers, A and B, are obtained from different vendors. It is assumed that no collusion exists between the vendors and that at most one of the compilers contains the Trojan. The process involves compiling the source code of compiler A with the executable of A, resulting in an output labeled x. The same source code is then compiled with the executable of compiler B, producing an output labeled y. Although x and y may differ in their binary representation, they are functionally equivalent. By compiling the source code with x and y separately, two new outputs, x prime and y prime, are obtained. If the compilers are both free from the Trojan, x prime and y prime should be identical. However, if they differ, it indicates that at least one of the compilers is flawed or compromised.
+
+This example demonstrates how employing two independent compilers aligns with the defense in depth principle. By not relying on a single compiler vendor and using diverse mechanisms, the likelihood of detecting a Trojan or bug in the compiler is increased. This approach leverages the concept of layer defense to enhance security.
+
+In summary, defense in depth is a common-sense design principle that emphasizes the use of multiple layers of defense in secure systems. It acknowledges that no defense is perfect and aims to mitigate vulnerabilities by employing diverse and independent measures at different levels.
+    </p>
+
+    <p>
+        The design principles we discussed focused on building secure systems. However, when it comes to the systems we currently have, these design principles are not always followed. Let's examine a few examples:
+
+1. Least Privilege: The US Postal Service's informed delivery service allowed users to view pictures of mail intended for their mailbox. However, due to a design flaw, users could access and view mail from any mailbox. This violates the principle of least privilege, as users should only have access to their own mailbox.
+
+2. Fail-Safe Default: Many IoT devices, such as cameras and routers, come with default usernames and passwords that are easily guessed by attackers. This lack of fail-safe defaults led to the creation of the Mirai botnet, which exploited these devices and launched distributed denial-of-service attacks.
+
+3. Defense in Depth: While enterprise networks often implement multiple layers of security, including firewalls, intrusion detection systems (IDS), and intrusion prevention systems (IPS), there are cases where these layers are not properly implemented or maintained. This compromises the principle of defense in depth and leaves the network vulnerable to attacks.
+
+In addition to these prevention-focused design principles, it's important to consider detection, response, and remediation in the overall security lifecycle. Security breaches are inevitable, so detecting and responding to them becomes crucial. However, false alerts can create overhead for security analysts and impact usability. Modularity is another design principle to consider, as it can make patching and remediation easier in simpler systems compared to complex ones.
+
+It's essential to understand that security involves both prevention and response. The economics of security suggest that finding the right balance between prevention and response costs is crucial. By minimizing the combined cost of prevention and response, we can optimize security efforts.
+
+Therefore, when thinking about security, it's important to broaden our perspective and consider the entire security lifecycle, including prevention, detection, response, and remediation. Design principles should be applied throughout this lifecycle to build and maintain secure systems.
+    </p>
+
+    <p>
+        In summary, we discussed several design principles for secure systems. One important principle is the principle of least privilege, which states that programs should run with the fewest privileges necessary to minimize potential damage. Unfortunately, many existing systems do not follow this principle, as demonstrated by the example of the US Postal Service's informed delivery service, which allowed users to view mail intended for other mailboxes. This lack of access control violates the principle of least privilege.
+
+Another design principle we discussed is fail-safe defaults, which means that if access is not explicitly granted, it should be denied. This principle was violated in the case of the Mirai botnet, where default usernames and passwords on IoT devices were easily guessed, allowing attackers to gain control over a large number of devices and launch distributed denial of service (DDoS) attacks. The same principle was also violated in the case of the Robert Morris worm, where the default configuration of the sendmail program allowed remote access, leading to unauthorized control of machines.
+
+We also touched on the principle of defense in depth, which involves having multiple layers of security to protect against different types of attacks. This principle emphasizes the use of intrusion detection and prevention systems in addition to firewalls. While some systems adhere to this principle, others neglect it, leaving vulnerabilities that can be exploited.
+
+It is important to note that security is not solely focused on prevention; it also involves detection, response, and remediation. Prevention measures may not always be 100% effective, so detecting and responding to breaches is crucial. However, false alerts can create a burden on security analysts, and modularity can facilitate easier remediation and patching.
+
+Lastly, we discussed the economics of security, where the costs of prevention and response need to be balanced. The goal is to operate at a level where the combined costs of prevention and response are minimized.
+
+Overall, the design principles discussed in this module provide a framework for building secure systems, but security should be approached holistically, considering prevention, detection, response, and remediation throughout the security lifecycle.
+    </p>
+
+    <p>
+        To summarize this module on Design Principles for Secure Systems, we discussed the importance of balancing security and usability, as well as the costs and economics of security. We emphasized the significance of safe defaults and the principle of least privilege, which states that programs should run with the fewest privileges necessary. Complexity was addressed as a potential security risk, and the benefits of open design and economy of mechanism were highlighted.
+
+We acknowledged that while these design principles are widely recognized and important, their adoption by the community and vendors is not always consistent. However, the course aims to explore how system-level mechanisms can help improve the implementation of these principles and enhance the trustworthiness of the trusted computing base.
+
+The next module will delve into hardware protection and how it enables isolation, a crucial requirement for meeting the security goals of a trusted computing base.
+
+The recommended reading for this module includes the classic paper "Protection of Information in Computer Systems" by Schroeder and Saltzer, focusing specifically on the section about design principles. Chapter 5 of Morey Yasser's book also covers design principles and will be relevant for the quiz.
+
+See you in Module 3!
+    </p>
+
+    <p>
+        In this module on Design Principles for Secure Systems, we explored several key principles that contribute to building secure systems. We recognized the importance of balancing security and usability, considering the cost and impact on user acceptability. Safe defaults and the least privilege principle emerged as crucial design principles, emphasizing the need for programs to run with minimal privileges. Complexity and economy of mechanism were discussed, promoting simpler designs and open approaches rather than relying on security through obscurity.
+
+        While these principles are widely acknowledged, their consistent implementation in systems by the community and vendors remains a challenge. However, this course aims to address this gap by introducing system-level mechanisms to enhance the trustworthiness of the trusted computing base.
+        
+        The upcoming module will delve into hardware protection and its role in achieving isolation, a vital requirement for meeting security objectives. To supplement the module, recommended readings include the Schroeder and Saltzer paper on "Protection of Information in Computer Systems," focusing on the section about design principles, as well as Chapter 5 of Morey Yasser's book.
+        
+        By applying these design principles and exploring hardware-based protection, we can work towards creating more secure systems.
+    </p>
+
+    <p>
+        In this module, we learned about important principles for creating secure systems. Let's break down these concepts in simpler terms:
+
+1. Balancing security and usability: When we design secure systems, we need to find a balance between making them secure and ensuring they are easy to use. We have to consider the cost and how users feel about using the system.
+
+2. Safe defaults: When a program starts running, it should have the fewest privileges or access rights possible. This principle helps contain any potential damage if something goes wrong. Unfortunately, many systems don't follow this principle, which can lead to security issues.
+
+3. Complexity and simplicity: It's better to keep system designs simple rather than overly complex. Simple designs are easier to understand and secure. Open approaches are preferred over relying on secrets or hidden information for security.
+
+4. Isolation and hardware protection: Isolation means keeping trusted parts of the system separate from untrusted parts. This separation helps protect sensitive information. Hardware plays an important role in achieving this isolation and ensuring the security of the system.
+
+5. Recommended readings: The Schroeder and Saltzer paper, "Protection of Information in Computer Systems," provides historical insights into how people thought about building secure systems. You can focus on the section about design principles. Chapter 5 of Morey Yasser's book is also recommended for further understanding.
+
+By following these design principles and exploring hardware-based protection, we can work towards creating systems that are more secure and trustworthy.
+    </p>
+
+</body>
+</html>
